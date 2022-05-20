@@ -1,11 +1,13 @@
-import './App.css';
+import Card from 'components/Card';
+import 'styles/App.css';
 
 function App() {
   return (
     <div className="App">
       <h1>My Restaurants</h1>
       <p>Here is a list of all the restaurants that I want to keep a record of either because I like them, dislike them, or would like to find out.</p>
-      <div className="card">
+      <Card name="Harry's Café de Wheels" tags={["Pies", "Hotdogs"]} address="886-896 Princes Hwy, Tempe NSW 2044" website="https://harryscafe.loke.app" notes="Has really nice specialty hotdogs and vegan pies. Try the Tiger Pie (mashed peas and potato with gravy)!" rating={4} visits={0}/>
+      {/* <div className="card">
         <h3>Harry's Café de Wheels</h3>
         <h4>Pies · Hotdogs</h4>
         <h4>886-896 Princes Hwy, Tempe NSW 2044</h4>
@@ -34,7 +36,7 @@ function App() {
           <button>Visit</button>
           <div>Rate ⭐⭐⭐⭐⭐</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
