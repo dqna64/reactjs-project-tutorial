@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Harry's Café de Wheels",
+    "tags": ["Pies", "Hotdogs"],
+    "address": "886-896 Princes Hwy, Tempe NSW 2044",
+    "website": "https://harryscafe.loke.app",
+    "notes": "Has really nice specialty hotdogs and vegan pies. Try the Tiger Pie (mashed peas and potato with gravy)!",
+    "visits": 5,
+    "rating": 4
+  },
+  {
+    "name": "Yasaka Ramen",
+    "tags": ["Ramen"],
+    "address": "644 George St, Sydney NSW 2000",
+    "website": "",
+    "notes": "One of Sydney's best ramen eateries. Located in World Square near lightrail.",
+    "visits": 0,
+    "rating": 0
+  }
+]
