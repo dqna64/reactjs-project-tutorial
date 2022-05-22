@@ -5,14 +5,14 @@ const Card = (props) => {
   const updateInfo = (newInfo) => {
     props.onUpdate(props.index, newInfo)
   }
-
+  
   const handleResetRating = () => {
     if (props.info.rating !== 0) {
       const newInfo = { ...props.info, rating: 0 }
       updateInfo(newInfo)
     }
   }
-
+  
   const handleDecreaseRating = () => {
     const newInfo = { ...props.info }
     if (newInfo.rating > 1) {
@@ -20,7 +20,7 @@ const Card = (props) => {
       updateInfo(newInfo)
     }
   }
-
+  
   const handleIncreaseRating = () => {
     const newInfo = { ...props.info }
     if (newInfo.rating < 5) {
@@ -70,11 +70,11 @@ const Card = (props) => {
         </div>
         <div className="visitsContainer">
           <div>
-            {props.info.visits === 0
+            {props.info.visits.length === 0
               ? 'You have not visited this place yet'
-              : `Visited ${props.info.visits} times`}
+              : `Visited ${props.info.visits.length} times`}
           </div>
-          <button onClick={() => updateInfo({ ...props.info, visits: props.info.visits + 1 })}>
+          <button onClick={() => updateInfo({ ...props.info, visits: [...props.info.visits, new Date()] })}>
             Visit
           </button>
         </div>

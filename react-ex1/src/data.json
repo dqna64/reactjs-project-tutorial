@@ -5,7 +5,7 @@
     "address": "886-896 Princes Hwy, Tempe NSW 2044",
     "website": "https://harryscafe.loke.app",
     "notes": "Has really nice specialty hotdogs and vegan pies. Try the Tiger Pie (mashed peas and potato with gravy)!",
-    "visits": 5,
+    "visits": ["2022-03-19", "2022-05-15", "2022-05-20"],
     "rating": 4
   },
   {
@@ -14,7 +14,7 @@
     "address": "644 George St, Sydney NSW 2000",
     "website": "",
     "notes": "One of Sydney's best ramen eateries. Located in World Square near lightrail.",
-    "visits": 0,
+    "visits": [],
     "rating": 0
   }
 ]
