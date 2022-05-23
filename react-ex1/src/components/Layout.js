@@ -7,24 +7,26 @@ const Layout = (props) => {
     <div>
       <header>
         <nav>
-            <Link to={"/"}>
-          <div>
-          <img src={logo} alt="logo" />Food Places
+          <Link to={'/'}>
+            <div>
+              <img src={logo} alt="logo" />
+              Food Places
             </div>
-            </Link>
+          </Link>
           <ul>
             <li>
-            <Link to={'/'}>{"All Places"}</Link>
+              <Link to={'/'}>{'All Places'}</Link>
             </li>
             <li>
-            <Link to={'/add'}>{"Add Place"}</Link>
+              <Link to={'/favorites'}>{'Favourites'}</Link>
+            </li>
+            <li>
+              <Link to={'/frequent'}>{'Frequent'}</Link>
             </li>
           </ul>
         </nav>
       </header>
-      <main>
-        {props.children}
-      </main>
+      <main>{props.children}</main>
     </div>
   )
 }

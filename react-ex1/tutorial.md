@@ -20,6 +20,11 @@
     - Motivation: Reduce repeated layout formatting for both `App.js` and `AddPlace.js`
     - Create `src/Layout.js` component
     - "Components can be reused as a parent of different sub-components by passing those sub-components as props to the parent component. In React, each component has a special `children` prop that can be used to access sub-components which it wraps around.
+1. React Context
+    - AllPlaces, Favourites, Frequent -> CardsList -> Card
+    - prop drilling becomes an issue, places state and updatePlaces method
+    - Different pages need to share data
+    - Use a react context to store the places data and provide update methods
 
 ### Todo
 
