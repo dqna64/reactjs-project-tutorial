@@ -5,7 +5,7 @@
 
 main {
   min-height: 100vh;
-  padding: 0.1rem var(--window-side-padding) 2rem;;
+  padding: 1.2rem var(--window-side-padding) 2rem;;
   max-width: var(--max-width-desktop);
   margin: 4.2rem auto 0;
 }
@@ -50,8 +50,10 @@ nav ul {
 nav li {
   list-style: none;
   margin-left: 1.5rem;
+  font-weight: 600;
 }
 
 nav a {
   text-decoration: none;
+  color: black;
 }

@@ -15,7 +15,7 @@
     - Create `src/AddPlace.js` page, show routing working
     - Build navigation bar component and add to `src/App.js`
     - Show no navigation bar in `src/AddPlace.js` so add navbar component to it
-    - Dynamic routes to each place page
+    - Dynamic routes to each place page, place id as url parameter
 1. Child components
     - Motivation: Reduce repeated layout formatting for both `App.js` and `AddPlace.js`
     - Create `src/Layout.js` component
@@ -35,10 +35,10 @@ Pages
     - All: shows all places the user has added to the addressbook
     - ??Favorites: Shows places in order of most highly rated~~
     - ??Frequent: Shows places in order of most frequently visited~~
-    - Could just use filtering and sorting for the above two instead?
+    - Could just use filtering and sorting for the above two instead? Actually having these as pages could be good for demoing jsx, state and list rendering before making routes to multiple pages that follow a similar pattern (just sorting the list by fn)
     - ???Add: Add a new place to the addressbook [could jsut be a modal]
     - ??Place page: A page displaying a place, with edit mode
-    - tbh a modal makes more sense for editing and adding new place
+    - tbh a modal makes more sense for editing and adding new place.
     - Question: What new pages do we make to demo routing? Has to be something that comes after teaching state, lifecycle, event handling etc bc it has to come after routing
 
 ### Restaurant schema
@@ -46,7 +46,7 @@ Types of the places array data structure in TypeScript format
 ```ts
 type place = [
     {
-        id: number, // A unique identifier for the place
+        placeId: number, // A unique identifier for the place
         name: string, // Name of restaurant
         tags: string[], // A few keywords describing the type of restaurant
         address: string, // Should real address indexed by Google Maps

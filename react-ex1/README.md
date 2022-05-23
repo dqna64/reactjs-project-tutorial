@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - removed testing framework from create-react-app setup
 - create styles and components folders within src folder
-- created jsconfig.json file to set baseUrl for absolute imports e.g. `import "styles/App.css"`
+- created jsconfig.json file to set baseUrl for absolute imports e.g. `import "styles/index.css"`
 
 
 ## Available Scripts

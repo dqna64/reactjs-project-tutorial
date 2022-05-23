@@ -1,5 +1,6 @@
 [
   {
+    "placeId": 0,
     "name": "Harry's Café de Wheels",
     "tags": ["Pies", "Hotdogs"],
     "address": "886-896 Princes Hwy, Tempe NSW 2044",
@@ -9,6 +10,7 @@
     "rating": 4
   },
   {
+    "placeId": 1,
     "name": "Yasaka Ramen",
     "tags": ["Ramen"],
     "address": "644 George St, Sydney NSW 2000",
