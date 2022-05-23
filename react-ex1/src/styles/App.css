@@ -1,5 +1,57 @@
-.App {
-  padding: 2rem 3rem;
-  max-width: 1024px;
+:root {
+  --max-width-desktop: 1024px;
+  --window-side-padding: 1.2rem;
+}
+
+main {
+  min-height: 100vh;
+  padding: 0.1rem var(--window-side-padding) 2rem;;
+  max-width: var(--max-width-desktop);
+  margin: 4.2rem auto 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.2rem;
+  background-color: bisque;
+}
+
+nav {
+  padding: 0.7rem var(--window-side-padding);
+  max-width: var(--max-width-desktop);
   margin: 0 auto;
+  height: 4.2rem;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+nav div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+nav img {
+  height: 100%;
+  margin-right: 1rem;
+}
+
+nav ul {
+  display: flex;
+
+}
+
+nav li {
+  list-style: none;
+  margin-left: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
 }

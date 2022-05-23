@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,9 +16,14 @@ code {
     monospace;
 }
 
+h1 {
+  font-size: 2rem;
+  margin: 1rem 0 0.8rem;
+}
+
 h3 {
   font-size: 1.5rem;
-  margin: 0.2rem 0 0.3rem;
+  margin: 0.2rem 0 0.4rem;
 }
 
 h4 {

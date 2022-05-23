@@ -1,5 +1,7 @@
 
 ### Tutorial steps
+1. createRoot and render functions
+1. jsconfig.json (explain as an aside) https://create-react-app.dev/docs/importing-a-component/#absolute-imports
 1. Display a single place in the top-level component
 1. Turn place element into a component and pass in props.
     - Fragment to deal with returning multiple elements side by side
@@ -19,13 +21,25 @@
     - Create `src/Layout.js` component
     - "Components can be reused as a parent of different sub-components by passing those sub-components as props to the parent component. In React, each component has a special `children` prop that can be used to access sub-components which it wraps around.
 
+### Todo
+
+- [ ] Nav bar with logo and `Add Place` button which opens modal for adding new place
+- [ ] Dynamic routing for place page??? maybe don't need
+- [ ] Stuff in ###Features
+- [ ] Footer
+- [ ] Star input thing
+
 ### Features
 Pages
     - Home
     - All: shows all places the user has added to the addressbook
-    - Favorites: Shows places in order of most highly rated
-    - Frequent: Shows places in order of most frequently visited
-    - Add: Add a new place to the addressbook
+    - ??Favorites: Shows places in order of most highly rated~~
+    - ??Frequent: Shows places in order of most frequently visited~~
+    - Could just use filtering and sorting for the above two instead?
+    - ???Add: Add a new place to the addressbook [could jsut be a modal]
+    - ??Place page: A page displaying a place, with edit mode
+    - tbh a modal makes more sense for editing and adding new place
+    - Question: What new pages do we make to demo routing? Has to be something that comes after teaching state, lifecycle, event handling etc bc it has to come after routing
 
 ### Restaurant schema
 Types of the places array data structure in TypeScript format
