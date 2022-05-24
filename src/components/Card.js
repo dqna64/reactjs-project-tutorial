@@ -1,33 +1,7 @@
 import { useCallback, useState } from 'react'
-import 'styles/Card.css'
+import '../styles/Card.css'
 
 const Card = (props) => {
-  const updateInfo = (newInfo) => {
-    props.onUpdate(props.index, newInfo)
-  }
-  
-  const handleResetRating = () => {
-    if (props.info.rating !== 0) {
-      const newInfo = { ...props.info, rating: 0 }
-      updateInfo(newInfo)
-    }
-  }
-  
-  const handleDecreaseRating = () => {
-    const newInfo = { ...props.info }
-    if (newInfo.rating > 1) {
-      newInfo.rating -= 1
-      updateInfo(newInfo)
-    }
-  }
-  
-  const handleIncreaseRating = () => {
-    const newInfo = { ...props.info }
-    if (newInfo.rating < 5) {
-      newInfo.rating += 1
-      updateInfo(newInfo)
-    }
-  }
 
   const renderStars = useCallback((rating) => {
     let stars = []
@@ -62,11 +36,6 @@ const Card = (props) => {
           ) : (
             <div>Not rated yet</div>
           )}
-          <div>
-            <button onClick={handleResetRating}>Reset</button>
-            <button onClick={handleDecreaseRating}>-1</button>
-            <button onClick={handleIncreaseRating}>+1</button>
-          </div>
         </div>
         <div className="visitsContainer">
           <div>
@@ -74,9 +43,6 @@ const Card = (props) => {
               ? 'You have not visited this place yet'
               : `Visited ${props.info.visits.length} times`}
           </div>
-          <button onClick={() => updateInfo({ ...props.info, visits: [...props.info.visits, new Date()] })}>
-            Visit
-          </button>
         </div>
       </div>
     </div>

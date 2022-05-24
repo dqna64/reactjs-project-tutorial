@@ -8,23 +8,31 @@
 1. Keep state of place info
 1. Event handler to change state of place visited count
 1. Render a list of places
-1. Routing
-    - Install react-router-dom, notice package.json (already installed with npm install)
-    - Create pages folder and add pages "All", "Favourites", "Frequent", "Add"
-    - Add routing in `src/index.js` and `Outlet` in `App.js`
-    - Create `src/AddPlace.js` page, show routing working
-    - Build navigation bar component and add to `src/App.js`
-    - Show no navigation bar in `src/AddPlace.js` so add navbar component to it
-    - Dynamic routes to each place page, place id as url parameter
-1. Child components
-    - Motivation: Reduce repeated layout formatting for both `App.js` and `AddPlace.js`
+1. Sort by rating and visited, filter by tags, partially left as exercise to reader
+1. Lifecycle methods (useEffect)
+    - When sort options selected and we add a new place, sorted arrays should be resorted
+
+The following can be covered in other tutorials with more suitable sample projects
+
+1. Component composition
+    - Motivation: Reduce repeated layout formatting for both `App.js` and `Place.js`
     - Create `src/Layout.js` component
     - "Components can be reused as a parent of different sub-components by passing those sub-components as props to the parent component. In React, each component has a special `children` prop that can be used to access sub-components which it wraps around.
+1. Routing
+    - Install react-router-dom, notice package.json (already installed with npm install)
+    - Create pages folder and add page "Place"
+    - Add routing in `src/index.js`
+    - Dynamic routes to each place page, place id as url parameter
+    - Create `src/Place.js` page, `useParams`, show routing working
+    - Build navigation bar component and add to `src/App.js`
+    - Show no navigation bar in `src/Place.js` so add navbar component to it
+    - Make cards clickable to link to place page and place page button to go back
 1. React Context
     - AllPlaces, Favourites, Frequent -> CardsList -> Card
     - prop drilling becomes an issue, places state and updatePlaces method
     - Different pages need to share data
     - Use a react context to store the places data and provide update methods
+
 
 ### Todo
 
@@ -33,6 +41,7 @@
 - [ ] Stuff in ###Features
 - [ ] Footer
 - [ ] Star input thing
+- [ ] When new place created, scroll to new place card
 
 ### Features
 Pages
