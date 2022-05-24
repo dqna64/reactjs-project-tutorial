@@ -32,7 +32,7 @@ The following can be covered in other tutorials with more suitable sample projec
     - prop drilling becomes an issue, places state and updatePlaces method
     - Different pages need to share data
     - Use a react context to store the places data and provide update methods
-
+1. CSS modules
 
 ### Todo
 
@@ -63,7 +63,8 @@ type place = [
         placeId: number, // A unique identifier for the place
         name: string, // Name of restaurant
         tags: string[], // A few keywords describing the type of restaurant
-        address: string, // Should real address indexed by Google Maps
+        address: string, // Should be a real address indexed by Google Maps
+        website?: string, // Should be real website of the establishment
         notes?: string, // User's personal notes on the restaurant
         visits: string[], // Array of UNIX timestamps
         rating?: number, // 0-5, 0 means not yet rated

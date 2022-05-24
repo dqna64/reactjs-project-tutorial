@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react'
-import '../styles/Card.css'
 
 const Card = (props) => {
 
@@ -34,15 +33,13 @@ const Card = (props) => {
               {renderStars(props.info.rating)}
             </div>
           ) : (
-            <div>Not rated yet</div>
+            "Not rated yet"
           )}
         </div>
         <div className="visitsContainer">
-          <div>
             {props.info.visits.length === 0
               ? 'You have not visited this place yet'
               : `Visited ${props.info.visits.length} times`}
-          </div>
         </div>
       </div>
     </div>
