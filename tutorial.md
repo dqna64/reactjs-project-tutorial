@@ -42,6 +42,7 @@ The following can be covered in other tutorials with more suitable sample projec
 - [ ] Footer
 - [ ] Star input thing
 - [ ] When new place created, scroll to new place card
+- [ ] icons for location and website
 
 ### Features
 Pages
@@ -63,7 +64,7 @@ type place = [
         placeId: number, // A unique identifier for the place
         name: string, // Name of restaurant
         tags: string[], // A few keywords describing the type of restaurant
-        address: string, // Should be a real address indexed by Google Maps
+        location: string, // Be as specific or unspecific as you want
         website?: string, // Should be real website of the establishment
         notes?: string, // User's personal notes on the restaurant
         visits: string[], // Array of UNIX timestamps

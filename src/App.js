@@ -7,28 +7,53 @@ import Card from './components/Card'
 
 const AllPlaces = () => {
   const [places, setPlaces] = useState(placesInfo)
-  const addPlace = (newPlaceInfo) => {
-    const newPlaces = [...places] // Make copy of places array
-    newPlaceInfo.placeId = newPlaces.length // Assign unique placeId to new place
-    newPlaces.push(newPlaceInfo) // Add new place to the end of the new places array
-    setPlaces(newPlaces) // Set state to the new places array
-  }
+  const [addPlaceModal, setAddPlaceModal] = useState(false)
 
   const [allTags, setAllTags] = useState(['Burgers', 'Sashimi', 'Onigiri'])
 
   const [name, setName] = useState('')
-  const [tags, setTags] = useState(['Burgers'])
-  const [address, setAddress] = useState('')
+  const [selectedTags, setSelectedTags] = useState([])
+  const [location, setLocation] = useState('')
   const [website, setWebsite] = useState('')
   const [notes, setNotes] = useState('')
   const [rating, setRating] = useState(0)
   const [visits, setVisits] = useState(0)
 
-  const handleSubmit = (e) => {
+  const [newTag, setNewTag] = useState('')
+
+  const handleToggleTag = (toggledTag) => {
+    if (selectedTags.includes(toggledTag)) {
+      const newSelectedTags = [...selectedTags]
+      newSelectedTags.splice(newSelectedTags.indexOf(toggledTag), 1)
+      setSelectedTags(newSelectedTags)
+    } else {
+      const newSelectedTags = [...selectedTags, toggledTag]
+      setSelectedTags(newSelectedTags)
+    }
+  }
+
+  const handleAddPlace = (e) => {
     e.preventDefault()
     const newPlaceInfo = {
-      placeId: places.length, name, tags, address, website, notes, rating, visits}
+      placeId: places.length,
+      name,
+      tags: selectedTags,
+      location,
+      website,
+      notes,
+      rating,
+      visits,
+    }
     setPlaces([...places, newPlaceInfo])
+  }
+
+  const handleAddTag = (e) => {
+    e.preventDefault()
+    if (newTag.length > 0) {
+      setAllTags([...allTags, newTag])
+      setSelectedTags([...selectedTags, newTag])
+      setNewTag("")
+    }
   }
 
   return (
@@ -49,44 +74,48 @@ const AllPlaces = () => {
         {places.map((place) => (
           <Card key={place.placeId} info={place} />
         ))}
-        <div className="card">fjdkslafjdl</div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleAddPlace}>
+          <h1>Add a new place</h1>
+          <p>
+            Add a new restaurant, cafe, bar, bakery, patisserie or anything else to my collection of
+            food places.
+          </p>
           <label>
-            Name of place:
+            Name of place
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <label>
-            Tags:
-            <select
-            style={{ width: '100%' }}
-              multiple
-              defaultValue={tags}
-            >
-              {allTags.map((tag) => (
-                <option key={tag} value={tag} onClick={
-                (e)=>{const newVal = e.target.value
-                tags.includes(newVal)
-                  ? setTags([...tags].splice(tags.indexOf(newVal), 1))
-                  : setTags([...tags, newVal])}}>
-                  {tag + " " + (tags.includes(tag) ? 'selected' : 'unselected')}
-                </option>
-              ))}
-            </select>
-            <div>{tags}</div>
+            Location
+            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
           </label>
           <label>
-            Address:
-            <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </label>
-          <label>
-            Website:
+            Website
             <input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} />
           </label>
+          <label>Tags</label>
+          <div className="tagButtonsContainer">
+            {allTags.map((tag) => (
+              <input
+                type="button"
+                className={`tagButton ${selectedTags.includes(tag) && 'tagButtonSelected'}`}
+                value={tag}
+                onClick={() => handleToggleTag(tag)}
+              />
+            ))}
+          </div>
+          <input
+            type="text"
+            id="newTagInput"
+            value={newTag}
+            onChange={(e) => setNewTag(e.target.value)}
+          />
+          <input id="newTagSubmit" type="button" value="Add Tag" onClick={handleAddTag}/>
+
           <label>
-            Notes:
+            Notes
             <textarea type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
           </label>
-          <input type="submit" value="Add place" />
+          <input type="submit" value="Add Place" />
         </form>
       </main>
     </>
