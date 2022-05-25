@@ -1,8 +1,9 @@
 .card {
   border-radius: 1.2em;
-  background-color: #d8dce6;
+  background-color: #f6f1e0;
+  border: 3px solid #52524f;
   padding: 1.6em 1.4em;
-  margin-top: 1.2em;
+  margin: 1.2em 0;
 }
 
 .metricsContainer {

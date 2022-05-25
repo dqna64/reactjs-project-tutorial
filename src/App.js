@@ -1,13 +1,15 @@
 import placesInfo from './assets/data.json'
 import { useEffect, useState } from 'react'
 import logo from './assets/logo512.png'
+import plusIcon from './assets/plus.svg'
+import closeIcon from './assets/x-circle.svg'
 import './styles/App.css'
 import './styles/Card.css'
 import Card from './components/Card'
 
 const AllPlaces = () => {
   const [places, setPlaces] = useState(placesInfo)
-  const [addPlaceModal, setAddPlaceModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const [allTags, setAllTags] = useState(['Burgers', 'Sashimi', 'Onigiri'])
 
@@ -45,6 +47,12 @@ const AllPlaces = () => {
       visits,
     }
     setPlaces([...places, newPlaceInfo])
+    setName("")
+    setLocation("")
+    setWebsite("")
+    setSelectedTags([])
+    setNotes("")
+    setShowModal(false)
   }
 
   const handleAddTag = (e) => {
@@ -63,9 +71,15 @@ const AllPlaces = () => {
           Food
           <img src={logo} alt="logo" />
           Places
+          <button id="addPlaceBtn" onClick={()=>setShowModal(true)}>
+          Add Place
+        <img src={plusIcon} alt="Add Place Icon" height="16" style={{marginLeft: "0.3rem", marginRight: "-0.3rem"}}/>
+        </button>
         </nav>
       </header>
       <main>
+        
+          
         <h1>All Places</h1>
         <p>
           Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
@@ -74,8 +88,14 @@ const AllPlaces = () => {
         {places.map((place) => (
           <Card key={place.placeId} info={place} />
         ))}
-        <form onSubmit={handleAddPlace}>
+        
+        {showModal && (
+          
+        <div className='modal' onClick={()=>setShowModal(false)}>
+        <form onSubmit={handleAddPlace} onClick={(e)=> e.stopPropagation()}>
+          <img id="closeModal" onClick={()=>setShowModal(false)} src={closeIcon} alt="Close modal"></img>
           <h1>Add a new place</h1>
+
           <p>
             Add a new restaurant, cafe, bar, bakery, patisserie or anything else to my collection of
             food places.
@@ -117,6 +137,7 @@ const AllPlaces = () => {
           </label>
           <input type="submit" value="Add Place" />
         </form>
+        </div>)}
       </main>
     </>
   )

@@ -37,3 +37,32 @@ h4 {
 p {
   margin: 0.8rem 0;
 }
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 100vh;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 600;
+  background-color: #80c1ec;
+  font-weight: 700;
+  border: 3px solid #80c1ec;
+  transition: color 0.1s, background-color 0.1s, border 0.1s;
+  transition-timing-function: ease-out;
+}
+
+button:hover, button:focus {
+  border: 3px solid #a7d0e7;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #a7d0e7;
+
+}
