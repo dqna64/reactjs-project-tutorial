@@ -1,11 +1,13 @@
 
 ### Tutorial steps
 1. createRoot and render functions
-1. jsconfig.json (explain as an aside) https://create-react-app.dev/docs/importing-a-component/#absolute-imports
 1. Display a single place in the top-level component
 1. Turn place element into a component and pass in props.
     - Fragment to deal with returning multiple elements side by side
-1. Keep state of place info
+1. add place form
+    - Keep state of place info
+    - form, input and types, label
+    - create modal
 1. Event handler to change state of place visited count
 1. Render a list of places
 1. Sort by rating and visited, filter by tags, partially left as exercise to reader
@@ -33,11 +35,14 @@ The following can be covered in other tutorials with more suitable sample projec
     - Different pages need to share data
     - Use a react context to store the places data and provide update methods
 1. CSS modules
+1. google map
 
 ### Todo
 
 - [ ] Nav bar with logo and `Add Place` button which opens modal for adding new place
-- [ ] Dynamic routing for place page??? maybe don't need
+- [ ] Style add place modal
+    - star select and visits counter
+- [ ] Style place cards
 - [ ] Stuff in ###Features
 - [ ] Footer
 - [ ] Star input thing

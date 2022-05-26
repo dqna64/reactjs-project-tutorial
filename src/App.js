@@ -2,10 +2,10 @@ import placesInfo from './assets/data.json'
 import { useEffect, useState } from 'react'
 import logo from './assets/logo512.png'
 import plusIcon from './assets/plus.svg'
-import closeIcon from './assets/x-circle.svg'
 import './styles/App.css'
 import './styles/Card.css'
 import Card from './components/Card'
+import AddPlaceModal from './components/AddPlaceModal'
 
 const AllPlaces = () => {
   const [places, setPlaces] = useState(placesInfo)
@@ -13,54 +13,37 @@ const AllPlaces = () => {
 
   const [allTags, setAllTags] = useState(['Burgers', 'Sashimi', 'Onigiri'])
 
-  const [name, setName] = useState('')
-  const [selectedTags, setSelectedTags] = useState([])
-  const [location, setLocation] = useState('')
-  const [website, setWebsite] = useState('')
-  const [notes, setNotes] = useState('')
-  const [rating, setRating] = useState(0)
-  const [visits, setVisits] = useState(0)
-
-  const [newTag, setNewTag] = useState('')
-
-  const handleToggleTag = (toggledTag) => {
-    if (selectedTags.includes(toggledTag)) {
-      const newSelectedTags = [...selectedTags]
-      newSelectedTags.splice(newSelectedTags.indexOf(toggledTag), 1)
-      setSelectedTags(newSelectedTags)
-    } else {
-      const newSelectedTags = [...selectedTags, toggledTag]
-      setSelectedTags(newSelectedTags)
-    }
-  }
-
-  const handleAddPlace = (e) => {
-    e.preventDefault()
-    const newPlaceInfo = {
-      placeId: places.length,
-      name,
-      tags: selectedTags,
-      location,
-      website,
-      notes,
-      rating,
-      visits,
-    }
-    setPlaces([...places, newPlaceInfo])
-    setName("")
-    setLocation("")
-    setWebsite("")
-    setSelectedTags([])
-    setNotes("")
+  const handleUpsertPlace = (placeInfo) => {
     setShowModal(false)
+    const newPlaces = [...places]
+    if (placeInfo.id) {
+      for (let i = 0; i < newPlaces.length; i++) {
+        if (newPlaces[i].placeId === placeInfo.placeId) {
+          newPlaces[i] = placeInfo
+          setPlaces(newPlaces)
+          return
+        }
+      }
+    } else {
+      placeInfo.placeId = places.length
+      setPlaces([...newPlaces, placeInfo])
+    }
   }
 
-  const handleAddTag = (e) => {
-    e.preventDefault()
-    if (newTag.length > 0) {
+  const handleRemovePlace = (placeId) => {
+    const newPlaces = [...places]
+    for (let i = 0; i < newPlaces.length; i++) {
+      if (newPlaces[i].placeId === placeId) {
+        newPlaces.splice(i, 1)
+        break
+      }
+    }
+    setPlaces(newPlaces)
+  }
+
+  const handleCreateTag = (newTag) => {
+    if (!allTags.includes(newTag)) {
       setAllTags([...allTags, newTag])
-      setSelectedTags([...selectedTags, newTag])
-      setNewTag("")
     }
   }
 
@@ -71,15 +54,18 @@ const AllPlaces = () => {
           Food
           <img src={logo} alt="logo" />
           Places
-          <button id="addPlaceBtn" onClick={()=>setShowModal(true)}>
-          Add Place
-        <img src={plusIcon} alt="Add Place Icon" height="16" style={{marginLeft: "0.3rem", marginRight: "-0.3rem"}}/>
-        </button>
+          <button id="addPlaceBtn" onClick={() => setShowModal(true)}>
+            Add Place
+            <img
+              src={plusIcon}
+              alt="Add Place Icon"
+              height="16"
+              style={{ marginLeft: '0.3rem', marginRight: '-0.3rem' }}
+            />
+          </button>
         </nav>
       </header>
       <main>
-        
-          
         <h1>All Places</h1>
         <p>
           Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
@@ -88,56 +74,14 @@ const AllPlaces = () => {
         {places.map((place) => (
           <Card key={place.placeId} info={place} />
         ))}
-        
-        {showModal && (
-          
-        <div className='modal' onClick={()=>setShowModal(false)}>
-        <form onSubmit={handleAddPlace} onClick={(e)=> e.stopPropagation()}>
-          <img id="closeModal" onClick={()=>setShowModal(false)} src={closeIcon} alt="Close modal"></img>
-          <h1>Add a new place</h1>
 
-          <p>
-            Add a new restaurant, cafe, bar, bakery, patisserie or anything else to my collection of
-            food places.
-          </p>
-          <label>
-            Name of place
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-          <label>
-            Location
-            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
-          </label>
-          <label>
-            Website
-            <input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} />
-          </label>
-          <label>Tags</label>
-          <div className="tagButtonsContainer">
-            {allTags.map((tag) => (
-              <input
-                type="button"
-                className={`tagButton ${selectedTags.includes(tag) && 'tagButtonSelected'}`}
-                value={tag}
-                onClick={() => handleToggleTag(tag)}
-              />
-            ))}
-          </div>
-          <input
-            type="text"
-            id="newTagInput"
-            value={newTag}
-            onChange={(e) => setNewTag(e.target.value)}
-          />
-          <input id="newTagSubmit" type="button" value="Add Tag" onClick={handleAddTag}/>
-
-          <label>
-            Notes
-            <textarea type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
-          </label>
-          <input type="submit" value="Add Place" />
-        </form>
-        </div>)}
+        <AddPlaceModal
+          show={showModal}
+          onClose={() => setShowModal(false)}
+          onSubmitPlace={handleUpsertPlace}
+          allTags={allTags}
+          onCreateTag={handleCreateTag}
+        />
       </main>
     </>
   )

@@ -203,7 +203,7 @@ input[type=submit]:hover, #newTagSubmit:hover {
   cursor: pointer;
 }
 
-#closeModal {
+.iconBtn {
   display: block;
   margin: -16px -16px -16px auto; /* Offset by half width and height */
   width: 32px;
@@ -214,10 +214,10 @@ input[type=submit]:hover, #newTagSubmit:hover {
   transition-timing-function: ease-out;
 }
 
-#closeModal:hover {
+.iconBtn:hover {
   cursor: pointer;
 }
 
-#closeModal:hover, #closeModal:focus {
+.closeModalBtn:hover, .closeModalBtn:focus {
   background-color: #f0cbc5;
 }

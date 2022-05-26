@@ -1,4 +1,6 @@
 import { useCallback, useState } from 'react'
+import {ReactComponent as Star} from '../assets/star.svg'
+import editIcon from '../assets/edit.svg'
 
 const Card = (props) => {
 
@@ -6,9 +8,7 @@ const Card = (props) => {
     let stars = []
     for (let i = 0; i < rating; i++) {
       stars.push(
-        <span key={i} className="star">
-          ⭐
-        </span>,
+        <Star key={i} className="starIcon"/>
       )
     }
     return stars
@@ -16,6 +16,8 @@ const Card = (props) => {
 
   return (
     <div className="card">
+          <img className="iconBtn editBtn" src={editIcon} alt="Edit place info"></img>
+
       <h3>{props.info.name}</h3>
       <h4>{props.info.tags.join(' · ')}</h4>
       <h4>{props.info.address}</h4>
@@ -28,17 +30,17 @@ const Card = (props) => {
       <div className="metricsContainer">
         <div className="ratingContainer">
           {props.info.rating > 0 ? (
-            <div>
+            <>
               {`${props.info.rating}/5`}
               {renderStars(props.info.rating)}
-            </div>
+            </>
           ) : (
             "Not rated yet"
           )}
         </div>
         <div className="visitsContainer">
             {props.info.visits.length === 0
-              ? 'You have not visited this place yet'
+              ? 'Not visited yet'
               : `Visited ${props.info.visits.length} times`}
         </div>
       </div>
