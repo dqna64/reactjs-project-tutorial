@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import logo from './assets/logo512.png'
 import plusIcon from './assets/plus.svg'
 import './styles/App.css'
-import './styles/Card.css'
 import Card from './components/Card'
 import AddPlaceModal from './components/AddPlaceModal'
 

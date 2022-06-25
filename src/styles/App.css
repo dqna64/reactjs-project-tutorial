@@ -1,11 +1,6 @@
-:root {
-  --max-screen-width: 768px;
-  --side-padding: 1.2rem;
-}
-
 main {
   min-height: 100vh;
-  margin: 4.2rem auto 0;
+  margin: 0 auto 0;
   padding: 1.2rem var(--side-padding) 2rem;
   max-width: var(--max-screen-width);
 }
@@ -15,7 +10,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 4.2rem;
+  height: var(--header-height);
   background-color: bisque;
 }
 

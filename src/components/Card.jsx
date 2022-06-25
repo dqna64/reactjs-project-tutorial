@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react'
 import {ReactComponent as Star} from '../assets/star.svg'
 import editIcon from '../assets/edit.svg'
+import '../styles/Card.css'
+
 
 const Card = (props) => {
 

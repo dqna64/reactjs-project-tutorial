@@ -1,3 +1,9 @@
+:root {
+  --max-screen-width: 768px;
+  --side-padding: 1.2rem;
+  --header-height: 4.2rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +17,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::before {
+  display: block;
+  content: "";
+  height: var(--header-height);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -22,7 +34,7 @@ textarea {
 
 h1 {
   font-size: 2rem;
-  margin: 0.5rem 0 0.8rem;
+  margin: 0.8rem 0 0.8rem;
 }
 
 h3 {
