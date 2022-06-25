@@ -167,4 +167,34 @@ You should now be able to see the source code of your new React app in your code
 
 ![Your React source code app in VSCode](https://imgur.com/XzOhc6u)
 
-In the next part we'll explore all the different parts of the code that create-react-app has given to us.
+In the next tutorial we'll explore all the different parts of the code that create-react-app has given to us.
+
+
+# Part 2: The React App
+
+In the last tutorial you installed all the tools we'll need to create a React app, and opened the source code in your code editor. create-react-app has given us a lot of files in the starter project so in this tutorial we'll walk through each file and see what they do.
+
+![React app files](https://imgur.com/tv27w5k)
+
+> The pretty icons you see next to the files in this screenshot come from an extension from the VSCode extensions marketplace. To get the same icons, go to *Extensions* tab on the VSCode sidebar and search for *Material Icon theme* and install it.
+
+For the purposes of this tutorial, a lot of the files created for us are unnecessary. Before we continue, let's declutter our workspace by deleting these files which we won't need:
+
+- 
+
+The *README.md* file at the bottom has some instructions for how to use this project and some links to React resources. The .md extension stands for *markdown*, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
+
+In general you should use a *README.md* in a project to give an overview of what your project does, how to use it, and any other information you think would be useful for people interested in your code.
+
+The *package.json* file records all the packages that this project depends on i.e. *dependencies*. It is what npm uses to manage versions of these dependencies which your project depends on and download them when other people try to run your app on their computers.
+
+*package-lock.json* also tracks dependencies but in greater depth (dependencies of dependencies etc).
+
+![package.json](https://imgur.com/qxGaZQZ)
+
+The *node_modules* folder is a very big folder containing the actual code of the packages that your project uses i.e. dependencies. You usually won't need to look into it, but when you import packages into your project's code, here is where the packages are stored.
+
+The *public* folder contains static *assets* like images, icons and json data for your web app. The most important one is *index.html*. This is the html file that will begin rendering your web app in a browser.
+
+We can ignore the .gitignore file here since it is used for version control in projects, and we won't need to manage versions of this project.
+
