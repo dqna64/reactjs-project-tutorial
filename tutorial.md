@@ -594,7 +594,7 @@ const App = () => {
   const [website, setWebsite] = useState("https://www.machiavelli.com.au")
   const [notes, setNotes] = useState("Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.")
   const [rating, setRating] = useState(4)
-  const [visits, setVisits] = useState(["2022-03-19", "2022-05-15", "2022-05-20"])
+  const [visits, setVisits] = useState(3)
 
   return (
     <>
@@ -629,7 +629,7 @@ const App = () => {
               <Star className='starIcon' />
               <Star className='starIcon' />
             </div>
-            <div className="visitsContainer">Visited {visits.length} times</div>
+            <div className="visitsContainer">Visited {visits} times</div>
           </div>
         </div>
       </main>
@@ -638,7 +638,7 @@ const App = () => {
 }
 ```
 
-We are using a few different data types to store different types of state. Our restaurant's `name`, `address`, `website` and `notes` are just JavaScript `String`s. `tags` is a JS `Array`, which is an ordered collection of items, in this case `String`s. `rating` is a `Number`.
+We are using a few different data types to store different types of state. Our restaurant's `name`, `address`, `website` and `notes` are just JavaScript `String`s. `tags` is a JS `Array`, which is an ordered collection of items, in this case `String`s. `rating`and `visits` are `Number`s.
 
 Let's account for these different data types in our rendering.
 
@@ -667,7 +667,7 @@ const App = () => {
   const [website, setWebsite] = useState("https://www.machiavelli.com.au")
   const [notes, setNotes] = useState("Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.")
   const [rating, setRating] = useState(4)
-  const [visits, setVisits] = useState(["2022-03-19", "2022-05-15", "2022-05-20"])
+  const [visits, setVisits] = useState(3)
 
   const renderStars = (numStars) => {
     let stars = [] // Declare an empty array
@@ -701,7 +701,7 @@ Call the `renderStars` function in place of where we hard-coded our stars, passi
               Rating {rating}/5
               {renderStars(rating)}
             </div>
-            <div className="visitsContainer">Visited {visits.length} times</div>
+            <div className="visitsContainer">Visited {visits} times</div>
           </div>
 ```
 
@@ -726,4 +726,247 @@ In React, all components have a special `key` attribute, and whenever we render 
 
 In this tutorial we learned how to store state and render it. In later tutorials we'll also learn how to modify state based on user input.
 
+# Part 6
 
+At the moment our app is showing a single restaurant card. What if we want to show multiple cards with the same design but for different restaurants? One approach is to simply copy and paste our jsx and state for as many times as the number of cards we want to show. But this is poor code design because we are unnecessarily repeating code, and also not developer-friendly because our App.jsx file will literally grow in proportional to the number of cards that users want to show.
+
+Just like how functions in programming can separate responsibilities and eliminate repeated code while accounting for differing input data, in React we create reusable components that are responsible for displaying varying inputs in a specific format. In this project, our code that renders a restaurant card can be reused for different food restaurants.
+
+Make a new **components** folder in **src**. This new folder will store any reusable components that we create. Inside **src/components** create a file **Card.jsx** and add in this template for a basic React component:
+
+```jsx
+const Card = () => {
+    return
+}
+
+export default Card
+```
+
+We want this `Card` component to render the restaurant card we made in **App.jsx**. Cut and paste that JSX into the return of this `Card` component. Remember to wrap it in parentheses. Also be sure to move the star.svg and **Card.css** imports from **App.jsx** to **Card.jsx** (hint: the path from **Card.jsx** to **Card.css** is **"../styles/Card.css"** where ".." means "the parent folder of the folder that contains this file").
+
+```jsx
+import '../styles/Card.css'
+import { ReactComponent as Star } from '../assets/star.svg'
+
+const Card = () => {
+
+    const renderStars = (numStars) => {
+        let stars = []
+        for (let i = 0; i < numStars; i++) {
+          stars.push(
+            <Star key={i} className='starIcon' />
+          )
+        }
+        return stars
+    }
+    
+    return (
+        <div className="card">
+          <h3>{name}</h3>
+          <h4>{tags.join(" • ")}</h4>
+          <h4>{address}</h4>
+          <h4>
+            <a href={website} target="blank">
+              {website}
+            </a>
+          </h4>
+          <p>{notes}</p>
+          <div className="metricsContainer">
+            <div className="ratingContainer">
+              Rating {rating}/5
+              {renderStars(rating)}
+            </div>
+            <div className="visitsContainer">Visited {visits} times</div>
+          </div>
+        </div>
+    )
+}
+
+export default Card
+```
+
+Now back in **src/App.jsx** import the `Card` component and render it.
+
+```jsx
+import './styles/App.css'
+import './styles/Card.css'
+import logo from './assets/logo512.png'
+import { ReactComponent as Star } from './assets/star.svg'
+import { useState } from 'react'
+import Card from './components/Card'
+
+const App = () => {
+  ...
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
+        <Card />
+      </main>
+    </>
+  )
+}
+```
+
+These changes won't work just yet because the state in **Card.jsx** is undefined. But instead of moving all state from **App.jsx** to **Card.jsx**, we're going to do something slightly differently. In **App.jsx** we'll replace all of our state variables with a single state called `place` which will store all the info for our restaurant in a single JavaScript *Object*. A JavaScript Object is a type of data structure which stores key-value pairs.
+
+```jsx
+const App = () => {
+
+  const [place, setState] = useState({
+    "name": "Machiavelli Ristorante Italiano",
+    "tags": ["Pizza", "Pasta"],
+    "address": "123 Clarence St, Sydney NSW 2000",
+    "website": "https://www.machiavelli.com.au",
+    "notes": "Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.",
+    "rating": 4,
+    "visits": 3
+  })
+
+  return (
+    ...
+  )
+}
+```
+
+To let our `Card` component access this state, we pass it as a "property" or "prop" of the `Card` component. We can name the property anything we like, such as `info`.
+
+```jsx
+const App = () => {
+
+  const [place, setState] = useState({
+    "name": "Machiavelli Ristorante Italiano",
+    "tags": ["Pizza", "Pasta"],
+    "address": "123 Clarence St, Sydney NSW 2000",
+    "website": "https://www.machiavelli.com.au",
+    "notes": "Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.",
+    "rating": 4,
+    "visits": 3
+  })
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
+        <Card info={place}/>
+      </main>
+    </>
+  )
+}
+```
+
+Finally, to access this state in our `Card` component, declare a `props` argument for our `Card` function and add `props.info` to the beginning of all state variables. As an example, for `props.info.name` it means to access the value associated with the `name` key in the `place` object that was passed into the `info` prop of the `Card` component.
+
+```jsx
+const Card = (props) => {
+
+    ...
+
+    return (
+        <div className="card">
+          <h3>{props.info.name}</h3>
+          <h4>{props.info.tags.join(" • ")}</h4>
+          <h4>{props.info.address}</h4>
+          <h4>
+            <a href={props.info.website} target="blank">
+              {props.info.website}
+            </a>
+          </h4>
+          <p>{props.info.notes}</p>
+          <div className="metricsContainer">
+            <div className="ratingContainer">
+              Rating {props.info.rating}/5
+              {renderStars(props.info.rating)}
+            </div>
+            <div className="visitsContainer">Visited {props.info.visits} times</div>
+          </div>
+        </div>
+    )
+}
+```
+
+![](https://imgur.com/Ad61UQl)
+
+The refactor is now complete and our app should work as it did before. This work of extracting some JSX into its own component might seem tiresome and pointless, but it is good for a couple reasons:
+- it makes both our `App` and `Card` componen code smaller and less cluttered,
+- it allows the `Card` component to be reused for different input data.
+
+Let's render multiple food places with our new `Card` component. In **src/App.jsx** import the dummy restaurant data from **src/assets/data.json**.
+
+```jsx
+import placesInfo from './assets/data.json''
+```
+
+Replace the `place` state with a `places` state assigned initially to the array of objects `placesInfo` imported from **data.json**. This array contains objects of restaurant info in the same format as our previous `place` object.
+
+```jsx
+const App = () => {
+
+  const [places, setStates] = useState(placesInfo)
+
+  return (
+    ...
+  )
+}
+```
+
+To display a card for each restaurant in the list, we'll use the JavaScript `Array.map` method which transforms each object in the array into a `<Card />` component.
+
+```jsx
+const App = () => {
+
+  const [places, setStates] = useState(placesInfo)
+
+  return (
+    <>
+      <header>
+        <nav>
+          Food
+          <img src={logo} alt="logo" />
+          Places
+        </nav>
+      </header>
+      <main>
+        <h1>My List</h1>
+        <p>
+          Here is a list of all the restaurants, cafes, dessert bars and other eateries that I want
+          to keep a record of either because I like them, dislike them, or would like to find out.
+        </p>
+        {places.map((place, i) => <Card key={i} info={place}/>)}
+      </main>
+    </>
+  )
+}
+```
+
+The `Array.map` method takes an argument: a function taking in an array item and returning something else to replace it. We pass in an arrow function which takes in two arguments: a `place` which is an ierm from the `places` array, and `i` which is simply the index of the current item (starting from 0). The arrow function the returns a `<Card key={i} info={place} />`. Remember each component in a list must have a unique `key` prop, which we use `i` for.
+
+Our app now renders a list of cards of all restaurants specfied in the `places` array.
+
+![](https://imgur.com/fPGAyaP)
+
+In the next tutorial we'll learn how to add restaurants by modifying the `places` state.
+
+# Part 7
