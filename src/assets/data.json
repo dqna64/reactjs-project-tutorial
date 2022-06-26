@@ -1,11 +1,11 @@
 [
   {
     "placeId": 0,
-    "name": "Harry's Café de Wheels",
-    "tags": ["Pies", "Hotdogs"],
-    "address": "886-896 Princes Hwy, Tempe NSW 2044",
-    "website": "https://harryscafe.loke.app",
-    "notes": "Has really nice specialty hotdogs and vegan pies. Try the Tiger Pie (mashed peas and potato with gravy)!",
+    "name": "Machiavelli Ristorante Italiano",
+    "tags": ["Pizza", "Pasta"],
+    "address": "123 Clarence St, Sydney NSW 2000",
+    "website": "https://www.machiavelli.com.au",
+    "notes": "Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.",
     "visits": ["2022-03-19", "2022-05-15", "2022-05-20"],
     "rating": 4
   },
@@ -15,8 +15,38 @@
     "tags": ["Ramen"],
     "address": "644 George St, Sydney NSW 2000",
     "website": "",
-    "notes": "One of Sydney's best ramen eateries. Located in World Square near lightrail.",
+    "notes": "Apparently one of Sydney's best ramen eateries. Located in World Square near lightrail. Keen to try it out.",
     "visits": [],
     "rating": 0
+  },
+  {
+    "placeId": 2,
+    "name": "Mappen",
+    "tags": ["Tempura", "Ramen"],
+    "address": "11/537-551 George St, Sydney NSW 2000",
+    "website": "https://mappen.com.au/",
+    "notes": "Fast and delicious yet very cheap. Get's crowded often, make sure to book in advance.",
+    "visits": ["2022-01-13"],
+    "rating": 4
+  },
+  {
+    "placeId": 3,
+    "name": "Lorraine's Patisserie",
+    "tags": ["Dessert"],
+    "address": "Shop 5, Palings Lane, 320 George St, Sydney NSW 2000",
+    "website": "https://mappen.com.au/",
+    "notes": "Fast and delicious yet very cheap. Get's crowded often, make sure to book in advance.",
+    "visits": ["2022-01-04", "2022-02-25", "2022-03-16", "2022-04-27"],
+    "rating": 2
+  },
+  {
+    "placeId": 4,
+    "name": "Workshop Espresso",
+    "tags": ["Café"],
+    "address": "Shop 5, Palings Lane, 320 George St, Sydney NSW 2000",
+    "website": "",
+    "notes": "Sandwiches and pastries in a snug, trendy cafe with timber fixtures, stools and a communal bench.",
+    "visits": ["2022-05-13"],
+    "rating": 3
   }
 ]

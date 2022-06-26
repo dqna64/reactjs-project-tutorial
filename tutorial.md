@@ -49,6 +49,10 @@ The following can be covered in other tutorials with more suitable sample projec
 - [ ] When new place created, scroll to new place card
 - [ ] icons for location and website
 
+tutorials
+- [ ] install git and git clone project
+- [ ] code blocks filenames
+
 ### Features
 Pages
     - Home
@@ -80,11 +84,16 @@ type place = [
 ]
 ```
 
+# Other
+
+- SHow resources for html, css, js. Preferably small articles so its not too overwhelming
+
 # Intro
 
 - What you'll learn in this tutorial
 - What you'll do in this tutorial
 - Prereqs
+    - Don't need to understand css. Past HTML experience helpful but you'll pick it up very quickly through this tutorial.
 
 # Part 1: Setup
 
@@ -104,7 +113,7 @@ Go to [code.visualstudio.com](https://code.visualstudio.com/) to install a versi
 
 ## Shell
 
-To start a development server for building our application, we need to use a *shell* or command line.
+To start a development server for building our application, we need to use a **shell** or command line.
 
 On Mac you can use your built-in Terminal app.
 
@@ -128,7 +137,7 @@ If installed properly it will show its version, such as `8.5.5`.
 
 ## Create React App
 
-The final thing we need is a package from npm called *Create React App* which sets up a React application for you to start building quickly.
+The final thing we need is a package from npm called **Create React App** which sets up a React application for you to start building quickly.
 
 To install the Create React App package, run the following on your command line:
 
@@ -145,7 +154,7 @@ npm install --global create-react-app
 
 In MacOS you may need the `sudo` command in order to run the line with elevated privileges. It may prompt you to enter your Mac user password.
 
-Now let's use create-react-app to create a React app for us. We'll use npx, a package runner that also comes with NodeJS to run the create-react-app program, which will create the app in a new folder we call *my-react-app* (or any name you like).
+Now let's use create-react-app to create a React app for us. We'll use npx, a package runner that also comes with NodeJS to run the create-react-app program, which will create the app in a new folder we call **my-react-app** (or any name you like).
 
 ```bash
 npx create-react-app my-react-app
@@ -157,7 +166,7 @@ This will take a minute or two to download required packages and set up the proj
 cd my-react-app
 ```
 
-Also open up the project in VSCode by opening up the VSCode open and opening the folder *my-react-app*.
+Also open up the project in VSCode by opening up the VSCode open and opening the folder **my-react-app**.
 
 ![Open VSCode and open a folder](https://imgur.com/T6kP1ov)
 
@@ -182,19 +191,148 @@ For the purposes of this tutorial, a lot of the files created for us are unneces
 
 - 
 
-The *README.md* file at the bottom has some instructions for how to use this project and some links to React resources. The .md extension stands for *markdown*, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
+The **README.md** file at the bottom has some instructions for how to use this project and some links to React resources. The .md extension stands for *markdown*, a common text editing syntax to format text. It is not code; markdown is to make text readable for humans.
 
-In general you should use a *README.md* in a project to give an overview of what your project does, how to use it, and any other information you think would be useful for people interested in your code.
+In general you should use a **README.md** in a project to give an overview of what your project does, how to use it, and any other information you think would be useful for people interested in your code.
 
-The *package.json* file records all the packages that this project depends on i.e. *dependencies*. It is what npm uses to manage versions of these dependencies which your project depends on and download them when other people try to run your app on their computers.
+The **package.json** file records all the packages that this project depends on i.e. *dependencies*. It is what npm uses to manage versions of these dependencies which your project depends on and download them when other people try to run your app on their computers.
 
-*package-lock.json* also tracks dependencies but in greater depth (dependencies of dependencies etc).
+**package-lock.json** also tracks dependencies but in greater depth (dependencies of dependencies etc).
 
 ![package.json](https://imgur.com/qxGaZQZ)
 
-The *node_modules* folder is a very big folder containing the actual code of the packages that your project uses i.e. dependencies. You usually won't need to look into it, but when you import packages into your project's code, here is where the packages are stored.
+The **.gitignore** file specifies files and directories (folders) that should be ignored by the git version control system. We'll talk more about it later.
 
-The *public* folder contains static *assets* like images, icons and json data for your web app. The most important one is *index.html*. This is the html file that will begin rendering your web app in a browser.
+The **node_modules** folder is a very big folder containing the actual code of the packages that your project uses i.e. dependencies. You usually won't need to look into it, but when you import packages into your project's code, here is where the packages are stored.
 
-We can ignore the .gitignore file here since it is used for version control in projects, and we won't need to manage versions of this project.
+The **public** folder contains static **assets** like images, icons and html for your web app. The most important one is **index.html**. This is the html file that will begin rendering your web app in a browser. Open this file and find the following tag:
+
+```jsx
+<div id="root"></div>
+```
+
+This is called the "root" DOM node of your app which is where your React app will render. DOM stands for "Document Object Model" and keeps track of all the elements (e.g. `<div></div>`) that your HTML page wants to render in your browser.
+
+Most of your time building a React app will be spent on files in the **src** folder (source code). Let's open this folder and go through the contents.
+
+The **src/assets/** folder contains some images, svg icons and dummy data that we'll use for this tutorial's project.
+
+The **src/styles/** folder contains some stylesheets (.css files) made for this project which we'll use to enhance the appearance of the components we'll be making. You won't need to understand the css to work through this tutorial series.
+
+**src/index.js** creates a root ReactDOM node linked to the root DOM node we saw in **public/index.html**.
+
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+    <React.StrictMode>
+    <App/>
+  </React.StrictMode>,
+)
+```
+
+You won't need to understand the details behind ReactDOM and how it interacts with DOM; its whole purpose is to handle the transformation of React code to HTML elements so you don't have to. Just understand that this `root` node `render`s the `App` component, which is the one part of all this starter source code that we actually care about in this tutorial.
+
+Notice how the `App` component is imported from the `./App`. `./App` is a pathname where `.` means "same directory as this file" and `App` refers to the file called **App.jsx**.
+
+In the next tutorial we will start working in **src/App.jsx** on real React code!
+
+# Part 3
+
+Your web browser renders HTML pages which usually contain something like this:
+
+```html
+<div>
+    <h1>Hello HTML</h1>
+    <p>Some text wrapped in HTML p tags</p>
+    <div>
+        <div>Some text inside a div inside a div</div>
+        <img src="path/to/image.png" alt="An image" />
+    </div>
+</div>
+```
+
+Your HTML page is composed of HTML elements like `<h1>Title</h1>`.
+
+ReactJS has a similar syntax for rendering HTML elements. In fact, the above HTML code looks the same when translated into React. This is because React elements are created using a language which was developed specifically for React called JSX. JSX is a JavaScript syntax extension which looks very similar to HTML.
+
+```js
+const reactElement = <h1>Hello React</h1>
+```
+
+The above example shows a JavaScript constant variable being assigned to the return value of some JSX `<h1>Hello React</h1>`. The return value is a ReactDOM element, which the React DOM will eventually transform into the actual HTML element `<h1>Hello React</h1>` to be rendered in the browser.
+
+Let's open up **src/App.jsx**. The file has the .jsx extension which means the file contains jsx code.
+
+```jsx
+const App = () => {
+  return (
+    <h1>Hello React</h1>
+  )
+}
+
+export default App
+```
+
+The file has a JavaScript arrow function called `App` which returns the React element `<h1>Hello React</h1>`. JavaScript arrows functions look a bit strange, but it's works pretty much the same as functions in any other language as far as we are concerned. Here are some examples of how JS arrow functions are very similar to what you might be familiar with in other languages.
+
+An arrow function in JavaScript:
+```js
+const add = (a, b) => {
+    return a + b
+}
+```
+
+works the same as a regular function in JavaScript:
+```js
+function add(a, b) {
+    return a + b
+}
+```
+
+works the same as a function in Python:
+```python
+def add(a, b):
+    return a + b
+```
+
+works the same as a function in C:
+```c
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+The last line of **src/App.jsx**:
+
+```jsx
+export default App
+```
+
+simply makes the `App` function available to be imported into other files. In the case of this project it is imported in **src/index.js** as we saw in the last tutorial.
+
+---
+
+A React project is mainly made up of "components" which you can think of a separate blocks of HTML elements which are each responsible for their own state and functionality. A component is made using a function such as the `App` function we have in **src/App.jsx**.
+
+With the starting code we have at the moment, **src/index.js** imports the `App` component and renders it using the root React element. This is enough to work as a basic React app, so let's try to run it!
+
+If you open **package.json** you will see some "dependencies" including "react", "react-dom" and "react-scripts". We need to install these dependencies for our project to work. Open your shell and go into this project's directory. Then run this command:
+
+```bash
+npm install
+```
+
+This will download and install all the packages that this project depends on, listed in **package.json**.
+
+In **package.json** you will also see some "scripts" which maps some keywords like `"start"` to commands like `"react-scripts start"`. To start a development server for working on our project, run this command:
+
+```bash
+npm start
+```
+
+Your React app will then open in the browser at a url like *[http://localhost:3000](http://localhost:3000)*.
+
+![Your React app in the browser at localhost:3000](https://imgur.com/QlQHBQ3)
+
+In the next tutorial we will start coding in the `App` component to get some more elements showing on the app.
 
