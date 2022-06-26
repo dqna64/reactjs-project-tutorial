@@ -26,7 +26,3 @@
   margin-left: 0.2rem;
   fill: rgb(222, 163, 15);
 }
-
-.editBtn:hover, .editBtn:focus {
-  background-color: #c5e5f0;
-}
