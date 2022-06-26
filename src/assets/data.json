@@ -7,7 +7,7 @@
     "website": "https://www.machiavelli.com.au",
     "notes": "Authentic Italian restaurant serving a traditional Neapolitan cuisine. The Linguine Gamberi was good value but a little bland in flavour.",
     "rating": 4,
-    "visits": ["2022-03-19", "2022-05-15", "2022-05-20"]
+    "visits": 3
   },
   {
     "placeId": 1,
@@ -17,7 +17,7 @@
     "website": "",
     "notes": "Apparently one of Sydney's best ramen eateries. Located in World Square near lightrail. Keen to try it out.",
     "rating": 0,
-    "visits": []
+    "visits": 0
   },
   {
     "placeId": 2,
@@ -27,7 +27,7 @@
     "website": "https://mappen.com.au/",
     "notes": "Fast and delicious yet very cheap. Get's crowded often, make sure to book in advance.",
     "rating": 4,
-    "visits": ["2022-01-13"]
+    "visits": 1
   },
   {
     "placeId": 3,
@@ -37,7 +37,7 @@
     "website": "https://mappen.com.au/",
     "notes": "Fast and delicious yet very cheap. Get's crowded often, make sure to book in advance.",
     "rating": 2,
-    "visits": ["2022-01-04", "2022-02-25", "2022-03-16", "2022-04-27"]
+    "visits": 4
   },
   {
     "placeId": 4,
@@ -47,6 +47,6 @@
     "website": "",
     "notes": "Sandwiches and pastries in a snug, trendy cafe with timber fixtures, stools and a communal bench.",
     "rating": 3,
-    "visits": ["2022-05-13"]
+    "visits": 1
   }
 ]
