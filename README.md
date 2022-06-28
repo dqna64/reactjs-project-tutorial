@@ -1,5 +1,7 @@
 # CSESoc ReactJS Project Tutorial 2022
 
+<img src="https://i.imgur.com/wc2JBvd.png" alt="This tutorial walks you through building an app to track your favourite restaurants and cafes" width="80%" />
+
 This repository has the starter code for the CSESoc ReactJS Project Tutorial, a written set of exercises that teaches the fundamentals of the ReactJS front-end library by walking through the process of building a simple React application locally.
 
 The default (main) branch of this repository has a starter template. Clone this repository to your system and follow the tutorials starting at [https://learn.csesoc.org.au/articles/reactjs-tut-0](https://learn.csesoc.org.au/articles/reactjs-tut-0) or [here](https://learning-platform-six.vercel.app/articles/reactjs-tut-0)
