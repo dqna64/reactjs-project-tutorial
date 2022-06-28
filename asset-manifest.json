@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/reactjs-project-tutorial/static/css/main.52e4d557.css",
+    "main.js": "/reactjs-project-tutorial/static/js/main.03bad5b7.js",
+    "static/media/logo512.png": "/reactjs-project-tutorial/static/media/logo512.2320c2986e524ac02daa.png",
+    "static/media/star.svg": "/reactjs-project-tutorial/static/media/star.217737c603de8ad551a2979a4f744b9f.svg",
+    "index.html": "/reactjs-project-tutorial/index.html",
+    "static/media/x-circle.svg": "/reactjs-project-tutorial/static/media/x-circle.3634fd9bdaac9a98e0bdab88b04c942d.svg",
+    "static/media/edit.svg": "/reactjs-project-tutorial/static/media/edit.e65c500bcd54507450b0ab60ad220230.svg",
+    "static/media/plus.svg": "/reactjs-project-tutorial/static/media/plus.c26ca6e7cd03352b2edfa95711c54d22.svg",
+    "main.52e4d557.css.map": "/reactjs-project-tutorial/static/css/main.52e4d557.css.map",
+    "main.03bad5b7.js.map": "/reactjs-project-tutorial/static/js/main.03bad5b7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52e4d557.css",
+    "static/js/main.03bad5b7.js"
+  ]
+}
