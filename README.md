@@ -2,9 +2,9 @@
 
 This repository has the starter code for the CSESoc ReactJS Project Tutorial, a written set of exercises that teaches the fundamentals of the ReactJS front-end library by walking through the process of building a simple React application locally.
 
-The default (main) branch of this repository has a starter template. Download this repository and follow the tutorials at [https://learning-platform-six.vercel.app/articles/reactjs-tut-0](https://learning-platform-six.vercel.app/articles/reactjs-tut-0).
+The default (main) branch of this repository has a starter template. Clone this repository to your system and follow the tutorials starting at [https://learn.csesoc.org.au/articles/reactjs-tut-0](https://learn.csesoc.org.au/articles/reactjs-tut-0) or [here](https://learning-platform-six.vercel.app/articles/reactjs-tut-0)
 
-A full reference solution is available on the [`full-walkthrough`](https://github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough) branch.
+A full reference solution is available on the [`full-walkthrough`](https://github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough) branch of this repository.
 
 To download this repository:
 
@@ -23,15 +23,15 @@ $ npm install
 Then to start a development server,:
 
 ```bash
-npm start
+$ npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-# Source of Project
+# Sources
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Additional modifications:
 
