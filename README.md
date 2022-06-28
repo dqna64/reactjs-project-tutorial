@@ -2,6 +2,8 @@
 
 This repository has the starter code for the CSESoc ReactJS Project Tutorial, a written set of exercises that teaches the fundamentals of the ReactJS front-end library by walking through the process of building a simple React application locally.
 
+Here's a preview of the final completed tutorial project: [dqna64.github.io/reactjs-project-tutorial](https://dqna64.github.io/reactjs-project-tutorial/)
+
 <p align="center">
 <img src="https://imgur.com/sfHTEm4.png" alt="This tutorial walks you through building an app to track your favourite restaurants and cafes" width="60%" />
 </p>
