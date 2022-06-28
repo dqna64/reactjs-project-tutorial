@@ -4,6 +4,8 @@ This repository has the starter code for the CSESoc ReactJS Project Tutorial, a 
 
 The default (main) branch of this repository has a starter template. Download this repository and follow the tutorials at [https://learning-platform-six.vercel.app/articles/reactjs-tut-0](https://learning-platform-six.vercel.app/articles/reactjs-tut-0).
 
+A full reference solution is available on the [`full-walkthrough`](https://github.com/dqna64/reactjs-project-tutorial/tree/full-walkthrough) branch.
+
 To download this repository:
 
 ```bash
