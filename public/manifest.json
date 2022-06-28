@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Food Places",
+  "name": "Food Place Sample App for CSESoc Project Development Workshop",
   "icons": [
     {
       "src": "favicon.ico",
