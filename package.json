@@ -1,7 +1,7 @@
 {
   "name": "food-places-app",
   "version": "0.1.0",
-  "homepage": "https://dqna64.github.io/reactjs-project-tutorial",
+  "homepage": "https://dqna64.github.io/reactjs-project-tutorial/",
   "private": true,
   "dependencies": {
     "bootstrap": "^5.2.0-beta1",
